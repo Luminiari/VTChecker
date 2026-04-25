@@ -1,0 +1,47 @@
+{
+  "SchemaVersion": 1,
+  "ModName": "VT Checker",
+  "ModDescription": "It's rakor's VT checker script but for MCM yippee",
+  "Tabs": [
+    {
+      "TabId": "main",
+      "TabName": "Pls to make my blorbo's body not a void anymore uwu",
+      "Sections": [
+        {
+          "SectionId": "runner",
+          "SectionName": "VT Checker",
+          "SectionDescription": "Get a list of VT mods in your load order without using the console. The list can be exported as a text file for you to access without needing the game to run.\n\nThe script will not run until a save has been fully loaded. The Run Script and Export List buttons stay disabled until then.",
+          "Options": {
+            "IsCollapsible": false
+          },
+          "Settings": [
+            {
+              "Id": "run_script",
+              "Name": "Run Script",
+              "Type": "event_button",
+              "Default": null,
+              "Tooltip": "Displays the current list of VT mods below."
+            },
+            {
+              "Id": "output_text",
+              "Name": "Output",
+              "Type": "text",
+              "Default": "",
+              "Tooltip": "You can copypaste this or export the output to a text file below.",
+              "Options": {
+                "Multiline": true
+              }
+            },
+            {
+              "Id": "export_output",
+              "Name": "Export List",
+              "Type": "event_button",
+              "Default": null,
+              "Tooltip": "Export the list of VT mods to your ScriptExtender folder."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
