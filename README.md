@@ -7,7 +7,7 @@ Runs in game and exports the list of mods to a text file so you can action your 
 
 ## Installing
 - Are you a modder wanting to poke at my shit source code? Use the usual button.
-- Are you just here to download and use the mod? IGNORE THE GREEN DOWNLOAD BUTTON. Go to the [**RELEASES PAGE**](https://github.com/Luminiari/VTChecker/releases) instead.
+- Are you just here to download and use the mod? IGNORE THE GREEN BUTTON. That is not for you. Go to the [**RELEASES PAGE**](https://github.com/Luminiari/VTChecker/releases) instead.
 
 ## Requirements
 - [Script Extender](https://github.com/Norbyte/bg3se) v31
