@@ -9,6 +9,11 @@ local Controller = {}
 local onRunClicked
 local onExportClicked
 
+local function clearSessionState()
+    State.MarkSessionLoaded(false)
+    State.SetBusy(false)
+end
+
 local function updateUi()
     MCMUI.SyncFields()
 end
@@ -136,16 +141,32 @@ local function registerMcmEventHandlers()
     end)
 end
 
-function Controller.Init()
-    local state = State.Get()
-    state.SessionLoaded = false
-    state.OutputText = state.OutputText or ""
+local function registerSessionHandlers()
+    Ext.Events.SessionLoading:Subscribe(function()
+        clearSessionState()
+        updateUi()
+    end)
 
     Ext.Events.SessionLoaded:Subscribe(function()
         State.MarkSessionLoaded(true)
         updateUi()
     end)
 
+    Ext.Events.GameStateChanged:Subscribe(function(event)
+        local toState = tostring(event and event.ToState or "")
+        if toState:find("Menu", 1, true) or toState:find("Unload", 1, true) then
+            clearSessionState()
+            updateUi()
+        end
+    end)
+end
+
+function Controller.Init()
+    local state = State.Get()
+    clearSessionState()
+    state.OutputText = state.OutputText or ""
+
+    registerSessionHandlers()
     registerMcmEventHandlers()
 
     Ext.OnNextTick(function()

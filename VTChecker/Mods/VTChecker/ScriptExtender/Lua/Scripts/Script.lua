@@ -26,6 +26,21 @@ local function tryGetModName(modUuid, fallbackName)
     return fallbackName or "Unknown"
 end
 
+local function hasEnabledVirtualTexture(material)
+    local parameters = material and material.VirtualTextureParameters
+    if not parameters then
+        return false
+    end
+
+    for _, entry in pairs(parameters) do
+        if entry and entry.Enabled then
+            return true
+        end
+    end
+
+    return false
+end
+
 function Script.Run(api)
     local all = Ext.Resource.GetAll("Material")
     local seen = {}
@@ -35,9 +50,7 @@ function Script.Run(api)
         local material = Ext.Resource.Get(uuid, "Material")
         if material
             and material.IsModded
-            and material.VirtualTextureParameters
-            and material.VirtualTextureParameters[1]
-            and material.VirtualTextureParameters[1].Enabled then
+            and hasEnabledVirtualTexture(material) then
             local sourceFile = normalizePath(material.SourceFile)
 
             if not sourceFile:find("Baldurs Gate 3/Data/Public/Shared/", 1, true) then
