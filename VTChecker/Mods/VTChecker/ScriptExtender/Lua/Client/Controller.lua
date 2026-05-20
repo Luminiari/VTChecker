@@ -14,6 +14,20 @@ local function clearSessionState()
     State.SetBusy(false)
 end
 
+local function isPlayableGameState(stateName)
+    local state = tostring(stateName or ""):lower()
+    return state:find("running", 1, true) ~= nil
+        or state:find("pause", 1, true) ~= nil
+        or state:find("dialog", 1, true) ~= nil
+end
+
+local function isNonPlayableGameState(stateName)
+    local state = tostring(stateName or ""):lower()
+    return state:find("menu", 1, true) ~= nil
+        or state:find("load", 1, true) ~= nil
+        or state:find("unload", 1, true) ~= nil
+end
+
 local function updateUi()
     MCMUI.SyncFields()
 end
@@ -154,8 +168,11 @@ local function registerSessionHandlers()
 
     Ext.Events.GameStateChanged:Subscribe(function(event)
         local toState = tostring(event and event.ToState or "")
-        if toState:find("Menu", 1, true) or toState:find("Unload", 1, true) then
+        if isNonPlayableGameState(toState) then
             clearSessionState()
+            updateUi()
+        elseif isPlayableGameState(toState) then
+            State.MarkSessionLoaded(true)
             updateUi()
         end
     end)
