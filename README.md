@@ -13,3 +13,9 @@ Runs in MCM and exports the list of mods to a text file so you can action your b
 - [Script Extender](https://github.com/Norbyte/bg3se) v31
 - [Mod Configuration Menu](https://www.nexusmods.com/baldursgate3/mods/9162) v1.40.1
 - [Please for the love of god use BG3MM, Vortex is shit](https://github.com/laughingleader/bg3modmanager)
+
+## Credits
+- rakor - original script
+- Volitio - Mod Configuration Menu
+- Norbyte - BG3 Script Extender
+- Some dudes at Larian I guess
