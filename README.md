@@ -6,7 +6,7 @@ Adapted from a code snippet from rakor because console scawy.
 Runs in MCM and exports the list of mods to a text file so you can action your blorbo's messed up skin textures without having to run the game later. This is saved to `%LOCALAPPDATA%\Larian Studios\Baldur's Gate 3\Script Extender\VT Mods.txt`.
 
 ## Installing
-- Are you a modder wanting to poke at my shit source code? Use the usual button, and use the Multitool or Lslib to package yourself. 
+- Are you a modder wanting to poke at my shit source code? Use the usual button, and use the [BG3 Modder's Multitool](https://github.com/ShinyHobo/BG3-Modders-Multitool) or [LSLib](https://github.com/Norbyte/lslib) to package yourself. 
 - Are you just here to download and use the mod? IGNORE THE GREEN BUTTON. That is not for you. Go to the [**RELEASES PAGE**](https://github.com/Luminiari/VTChecker/releases) instead.
 
 ## Requirements
